@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gaurav.io — Marketing Agency</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;800&display=swap" rel="stylesheet">
+<style>
+:root{--o:#fbbf24;--pk:#f472b6;--p:#8b5cf6;--p2:#c084fc;--c:#22d3ee;--bg:#0b0618;--mut:#d8c8ff}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Outfit',system-ui,sans-serif;background:var(--bg);color:#fff;overflow-x:hidden;min-height:100vh;font-size:18px}
+.bg{position:fixed;inset:0;z-index:-1;background:radial-gradient(circle at 15% 20%,#f59e0b66,transparent 40%),radial-gradient(circle at 85% 25%,#8b5cf6cc,transparent 45%),radial-gradient(circle at 50% 95%,#ec489966,transparent 40%),linear-gradient(135deg,#1e1038,#0b0618);animation:shift 16s ease-in-out infinite alternate}
+@keyframes shift{to{filter:hue-rotate(50deg)}}
+nav{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding:16px 6%;z-index:50;backdrop-filter:blur(14px);background:rgba(11,6,24,.55);animation:drop .8s ease both}
+@keyframes drop{from{transform:translateY(-100%)}}
+.logo{font-weight:800;font-size:24px;background:linear-gradient(90deg,var(--o),var(--pk),var(--c));-webkit-background-clip:text;color:transparent}
+nav ul{display:flex;gap:22px;list-style:none;flex-wrap:wrap}
+nav a{color:var(--mut);text-decoration:none;font-size:17px;transition:.3s}
+nav a:hover,nav a.on{color:#fff;text-shadow:0 0 12px var(--p2)}
+.page{display:none;min-height:100vh;padding:130px 7% 80px;animation:in .9s cubic-bezier(.2,.7,.2,1) both}
+.page.on{display:block}
+@keyframes in{from{opacity:0;transform:translateY(40px) rotateX(10deg)}to{opacity:1;transform:none}}
+.g{background:linear-gradient(90deg,var(--o),var(--pk),var(--p2),var(--c));background-size:300% 100%;-webkit-background-clip:text;color:transparent;animation:gl 5s linear infinite}
+@keyframes gl{to{background-position:300% 0}}
+h1{font-size:clamp(40px,5.5vw,72px);line-height:1.08;font-weight:800;margin-bottom:22px}
+h2{font-size:clamp(32px,4vw,52px);line-height:1.15;margin-bottom:16px;font-weight:800}
+h3{font-size:24px;margin-bottom:10px}
+.sub{color:var(--mut);max-width:640px;line-height:1.7;font-size:20px}
+.btn{display:inline-block;margin-top:28px;padding:16px 34px;border-radius:40px;background:#fff;color:#0b0618;font-weight:600;font-size:18px;text-decoration:none;border:0;cursor:pointer;transition:.3s;font-family:inherit}
+.btn:hover{transform:translateY(-3px) scale(1.05);box-shadow:0 10px 30px #c084fc99}
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.orbit{position:relative;height:500px;perspective:800px}
+.orbit .it{position:absolute;left:50%;top:50%;width:64px;height:64px;margin:-32px;border-radius:18px;display:grid;place-items:center;font-size:26px;background:rgba(255,255,255,.14);backdrop-filter:blur(8px);box-shadow:0 0 24px var(--c);will-change:transform}
+.core{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;pointer-events:none}
+.core b{font-size:60px;font-weight:300;display:block}
+.core span{font-size:16px;color:var(--mut)}
+.float{animation:fl 4s ease-in-out infinite}
+@keyframes fl{50%{transform:translateY(-12px)}}
+.flow{display:flex;gap:14px;flex-wrap:wrap;margin-top:50px}
+.flow span{padding:10px 20px;border-radius:30px;background:#ffffff1a;border:1px solid #ffffff33;font-size:16px}
+.stage{position:relative;height:420px;perspective:1100px;margin-top:30px}
+.desk{position:absolute;left:50%;top:0;width:440px;height:280px;margin-left:-220px;border-radius:18px;background:linear-gradient(145deg,#2b1a52,#120a24);border:1px solid #ffffff33;padding:20px;transition:transform 1s cubic-bezier(.2,.7,.2,1),opacity 1s;box-shadow:0 30px 60px #000a}
+.desk .scr{height:100%;border-radius:10px;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:14px;overflow:hidden;position:relative}
+.desk .scr::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,#ffffff55 50%,transparent 70%);transform:translateX(-100%);animation:sw 3s infinite}
+@keyframes sw{to{transform:translateX(100%)}}
+.desk h3{font-size:28px;z-index:1}
+.bars{display:flex;gap:8px;align-items:flex-end;height:50px;z-index:1}
+.bars i{width:12px;background:#fff;border-radius:3px;animation:bar 1.2s ease-in-out infinite alternate}
+.bars i:nth-child(2){animation-delay:.2s}.bars i:nth-child(3){animation-delay:.4s}.bars i:nth-child(4){animation-delay:.6s}
+@keyframes bar{to{height:100%}}
+.ctrl{display:flex;gap:12px;justify-content:center;margin-top:20px}
+.ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid #fff5;background:#ffffff1a;color:#fff;font-size:22px;cursor:pointer;transition:.3s}
+.ctrl button:hover{background:#fff;color:#0b0618}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:24px;margin-top:40px}
+.card{padding:34px;border-radius:24px;background:linear-gradient(145deg,#ffffff1f,#ffffff05);border:1px solid #ffffff26;transform-style:preserve-3d;transition:transform .15s ease,box-shadow .3s;will-change:transform}
+.card:hover{box-shadow:0 20px 50px #8b5cf655}
+.card .ic{font-size:44px;margin-bottom:16px;display:inline-block;animation:fl 3.5s ease-in-out infinite}
+.card p{color:var(--mut);font-size:18px;line-height:1.6}
+.reveal{opacity:0;transform:translateY(40px) rotateX(12deg);transition:all .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.v{opacity:1;transform:none}
+.stat{font-size:clamp(52px,6vw,80px);font-weight:800}
+.quote{font-size:clamp(24px,3vw,36px);line-height:1.4;max-width:900px;min-height:150px;transition:opacity .6s,transform .6s;margin:auto}
+.steps{counter-reset:s}
+.step{display:flex;gap:20px;align-items:flex-start;margin-top:26px}
+.step b{flex:0 0 56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:22px;background:linear-gradient(135deg,var(--o),var(--pk));color:#0b0618}
+.step p{color:var(--mut);font-size:18px;line-height:1.6;margin-top:6px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.contact-item{margin-top:24px;font-size:20px}
+.contact-item small{display:block;color:var(--mut);font-size:15px;text-transform:uppercase;letter-spacing:1px}
+input,textarea{width:100%;padding:18px 20px;margin-top:14px;border-radius:14px;border:1px solid #ffffff33;background:#ffffff14;color:#fff;font-family:inherit;font-size:18px;outline:none;transition:.3s}
+input:focus,textarea:focus{border-color:var(--p2);box-shadow:0 0 20px #c084fc66}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,200%);background:#fff;color:#0b0618;padding:14px 26px;border-radius:30px;font-weight:600;transition:transform .5s;z-index:60}
+.toast.s{transform:translate(-50%,0)}
+footer{text-align:center;color:var(--mut);font-size:15px;padding:40px}
+#office .office{position:relative;height:500px;border-radius:24px;overflow:hidden;background:linear-gradient(#2b1a52 0 45%,#140b2a 45%);border:1px solid #ffffff26;box-shadow:0 30px 60px #000a}
+.sign{position:absolute;top:14px;left:0;right:0;text-align:center;font-weight:800;font-size:22px;z-index:2}
+.gate{position:absolute;left:2%;bottom:6%;width:70px;height:150px;border:3px solid var(--c);box-shadow:0 0 25px var(--c);border-radius:6px 6px 0 0;perspective:400px;overflow:hidden;z-index:3}
+.door{position:absolute;inset:0;background:linear-gradient(var(--p),var(--pk));transform-origin:left;transition:transform 1s ease}
+.gate.open .door{transform:rotateY(-95deg)}
+.desks{position:absolute;inset:0}
+.desk2{position:absolute;width:15%;height:62px;transition:.6s}
+.desk2 .mon{width:100%;height:44px;border-radius:6px;background:linear-gradient(135deg,#2b1a52,#120a24);border:2px solid #ffffff44;display:grid;place-items:center;font-size:13px;font-weight:600;text-align:center;padding:4px;transition:.6s}
+.desk2 .tbl{height:14px;margin-top:4px;background:#3b2466;border-radius:4px;box-shadow:0 8px 14px #000a}
+.desk2.on .mon{background:linear-gradient(135deg,var(--p),var(--pk));box-shadow:0 0 30px var(--pk);transform:scale(1.08)}
+.guy{position:absolute;bottom:6%;left:-8%;width:50px;height:130px;transition:left 2.2s ease-in-out;animation:bob .6s ease-in-out infinite alternate;z-index:4}
+@keyframes bob{to{margin-top:-6px}}
+.g-head{position:absolute;top:0;left:12px;width:26px;height:26px;border-radius:50%;background:radial-gradient(circle at 35% 35%,#ffe0c2,#d9986a)}
+.g-hair{position:absolute;top:-2px;left:10px;width:30px;height:14px;border-radius:15px 15px 4px 4px;background:#2a1a10}
+.g-body{position:absolute;top:28px;left:8px;width:34px;height:46px;border-radius:14px 14px 6px 6px;background:linear-gradient(135deg,var(--o),var(--pk));box-shadow:0 0 18px var(--pk)}
+.g-arm{position:absolute;top:32px;width:9px;height:38px;border-radius:6px;background:var(--p2);transform-origin:top center;animation:arm .6s ease-in-out infinite alternate}
+.a1{left:0}.a2{left:41px;animation-delay:.3s}
+.g-leg{position:absolute;top:72px;width:11px;height:44px;border-radius:6px;background:#1e1b4b;transform-origin:top center;animation:leg .6s ease-in-out infinite alternate}
+.l1{left:12px}.l2{left:27px;animation-delay:.3s}
+@keyframes arm{from{transform:rotate(-25deg)}to{transform:rotate(25deg)}}
+@keyframes leg{from{transform:rotate(20deg)}to{transform:rotate(-20deg)}}
+.info{margin-top:24px;padding:26px;border-radius:20px;background:#ffffff14;border:1px solid #ffffff26;min-height:120px}
+.info h3{font-size:28px;margin-bottom:8px}
+.info p{color:var(--mut);font-size:18px;line-height:1.6}
+.lab{display:grid;grid-template-columns:1fr 60px 1fr;background:linear-gradient(#2b1a52,#120a24);border-radius:24px;padding:30px 24px;border:1px solid #ffffff26;box-shadow:0 30px 60px #000a;margin-top:40px}
+.bank{display:grid;grid-template-columns:repeat(5,1fr);gap:30px 12px}
+.aisle{background:repeating-linear-gradient(90deg,#ffffff0d 0 6px,transparent 6px 14px);border-radius:8px}
+.ws{display:flex;flex-direction:column;align-items:center;transition:transform .6s}
+.ws .mon{width:100%;height:100px;background:#070312;border:3px solid #3b2466;border-radius:8px;overflow:hidden;transition:.6s}
+.ws pre{font-size:9px;line-height:1.35;color:#c4f1ff;padding:6px;margin:0;white-space:pre;animation:scroll 10s linear infinite;font-family:ui-monospace,Menlo,monospace}
+@keyframes scroll{to{transform:translateY(-50%)}}
+.stand{width:14px;height:8px;background:#3b2466}
+.tbl{width:100%;height:10px;background:#3b2466;border-radius:4px;box-shadow:0 8px 14px #000a}
+.lbl{font-size:12px;color:var(--mut);margin-top:6px}
+.ws.on{transform:translateY(-6px)}
+.ws.on .mon{border-color:var(--pk);box-shadow:0 0 30px var(--pk)}
+@media(max-width:850px){.lab{grid-template-columns:1fr}.aisle{display:none}.bank{grid-template-columns:repeat(2,1fr)}.hero,.two{grid-template-columns:1fr}.orbit{height:380px}.desk{width:300px;margin-left:-150px}nav ul{gap:14px}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<nav>
+  <div class="logo">gaurav.io</div>
+  <ul>
+    <li><a href="#home" data-p="home">Home</a></li>
+    <li><a href="#landing" data-p="landing">Landing</a></li>
+    
+    <li><a href="#services" data-p="services">Services</a></li>
+    <li><a href="#about" data-p="about">About</a></li>
+    <li><a href="#contact" data-p="contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HOME -->
+<section class="page" id="home">
+  <div class="hero">
+    <div class="reveal v">
+      <h1>Grow Faster with <span class="g">Marketing That Actually Converts</span></h1>
+      <p class="sub">Web development, app development, SEO and paid ads, all from one team. We turn your traffic into customers.</p>
+      <a class="btn" href="#contact">Start Your Project →</a>
+    </div>
+    <div class="orbit" id="orbit"><div class="core"><b>20k+</b><span>Specialists</span></div></div>
+  </div>
+  <div class="flow"><span>🚀 Fast Delivery</span><span>🎯 Data-Driven</span><span>🛠 Full-Stack</span><span>📈 Growth First</span></div>
+
+  <div class="grid" style="margin-top:90px">
+    <div class="card reveal"><div class="stat g" data-n="150">0</div><p>Projects delivered</p></div>
+    <div class="card reveal"><div class="stat g" data-n="98">0</div><p>% client satisfaction</p></div>
+    <div class="card reveal"><div class="stat g" data-n="40">0</div><p>% average traffic growth</p></div>
+  </div>
+
+  <div class="reveal" style="margin-top:110px;text-align:center">
+    <h2>What Our <span class="g">Clients Say</span></h2>
+    <p class="quote" id="quote">"gaurav.io rebuilt our website and SEO at the same time. Our leads doubled in three months."</p>
+    <p class="sub" style="margin:16px auto">— Happy Client</p>
+  </div>
+
+  <div class="reveal" style="margin-top:110px;text-align:center">
+    <h2>Ready to <span class="g">Scale Up?</span></h2>
+    <p class="sub" style="margin:0 auto">Tell us about your goals and we will reply within 24 hours with a clear plan.</p>
+    <a class="btn" href="#contact">Get a Free Consultation →</a>
+  </div>
+</section>
+
+<!-- LANDING -->
+<section class="page" id="landing">
+  <h2 class="reveal">Every Service, <span class="g">One Showcase</span></h2>
+  <p class="sub reveal">Swipe through what we build for our clients.</p>
+  <div class="stage" id="stage"></div>
+  <div class="ctrl"><button onclick="step(-1)">‹</button><button onclick="step(1)">›</button></div>
+
+  <div class="two" style="margin-top:110px">
+    <div class="reveal">
+      <h2>How We <span class="g">Work</span></h2>
+      <p class="sub">A simple, transparent process from the first call to the final launch.</p>
+      <div class="steps">
+        <div class="step reveal"><b>01</b><div><h3>Discover</h3><p>We study your business, audience and competitors.</p></div></div>
+        <div class="step reveal"><b>02</b><div><h3>Design & Build</h3><p>Fast, modern websites and apps built for conversion.</p></div></div>
+        <div class="step reveal"><b>03</b><div><h3>Launch</h3><p>Secure deployment with full testing and tracking.</p></div></div>
+        <div class="step reveal"><b>04</b><div><h3>Grow</h3><p>SEO, ads and weekly reports to keep your numbers rising.</p></div></div>
+      </div>
+    </div>
+    <div class="card reveal" style="margin-top:60px">
+      <div class="ic">📊</div>
+      <h3>Results you can measure</h3>
+      <p>Every project comes with clear goals, weekly reporting and honest insights. No vanity metrics, only growth that shows up in your revenue.</p>
+      <a class="btn" href="#services">Explore Services →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Office page removed, now on Home
+<section class="page" id="office">
+  <h2 class="reveal">Step Inside <span class="g">Our Office</span></h2>
+  <p class="sub reveal">Walk through our workspace. Each desk shows one of our services.</p>
+  <div class="office" style="margin-top:30px">
+    <div class="sign g">Welcome to gaurav.io</div>
+    <div class="gate" id="gate"><div class="door"></div></div>
+    <div class="desks" id="desks"></div>
+    <div class="guy" id="guy"><div class="g-head"></div><div class="g-hair"></div><div class="g-body"></div><div class="g-arm a1"></div><div class="g-arm a2"></div><div class="g-leg l1"></div><div class="g-leg l2"></div></div>
+  </div>
+  <div class="info" id="info"><h3>Welcome to gaurav.io</h3><p>Our guide will walk you through each service, desk by desk.</p></div>
+</section>
+
+-->
+
+<!-- SERVICES -->
+<section class="page" id="services">
+  <h2 class="reveal">Our <span class="g">Services</span></h2>
+  <p class="sub reveal">Everything your brand needs to be seen, trusted and chosen. Move your mouse over a card to see it tilt.</p>
+  <div class="grid" id="svcGrid"></div>
+</section>
+
+<!-- ABOUT -->
+<section class="page" id="about">
+  <h2 class="reveal">About <span class="g">gaurav.io</span></h2>
+  <p class="sub reveal">gaurav.io is a full-service marketing agency. We help brands shine online through design, development, SEO and performance advertising.</p>
+  <div class="grid">
+    <div class="card reveal"><div class="ic">🎯</div><h3>Our Mission</h3><p>Give every business the simplest path to digital growth.</p></div>
+    <div class="card reveal"><div class="ic">💡</div><h3>Our Vision</h3><p>Become the most trusted digital marketing partner in India and beyond.</p></div>
+    <div class="card reveal"><div class="ic">🤝</div><h3>Our Values</h3><p>Transparency, speed and real results on every project.</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="page" id="contact">
+  <div class="two">
+    <div class="reveal">
+      <h2>Let's <span class="g">Get Started</span></h2>
+      <p class="sub">Share your project details and our team will get back to you within 24 hours.</p>
+      <div class="contact-item"><small>Email</small>hello@gaurav.io</div>
+      <div class="contact-item"><small>Phone</small>+91 00000 00000</div>
+      <div class="contact-item"><small>Location</small>Indore, Madhya Pradesh, India</div>
+    </div>
+    <div class="card reveal">
+      <input placeholder="Your name">
+      <input placeholder="Email address">
+      <input placeholder="Phone number">
+      <textarea rows="4" placeholder="Describe your project"></textarea>
+      <button class="btn" onclick="sent()">Send Message →</button>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 gaurav.io · All rights reserved</footer>
+<div class="toast" id="toast">Thank you! We will contact you soon ✨</div>
+
+<script>
+// Routing
+const pages=['home','landing','services','about','contact'];
+function route(){
+  let h=location.hash.slice(1)||'home';
+  if(!pages.includes(h)) h='home';
+  document.querySelectorAll('.page').forEach(p=>p.classList.toggle('on',p.id===h));
+  document.querySelectorAll('nav a').forEach(a=>a.classList.toggle('on',a.dataset.p===h));
+  observe();
+  
+  window.scrollTo({top:0});
+}
+addEventListener('hashchange',route);
+
+// Hero orbit
+const icons=['🌐','📱','🔍','🎨','📣','⚡','🛒','✍️','📊','🚀','💼','🎬'];
+const orbit=document.getElementById('orbit');
+const items=icons.map((ic,i)=>{const d=document.createElement('div');d.className='it';d.textContent=ic;orbit.appendChild(d);return{el:d,a:i/icons.length*Math.PI*2,r:i%2?170:230}});
+const t0=performance.now();
+function frame(now){
+  const t=(now-t0)/1000;
+  items.forEach(o=>{
+    const a=o.a+t*0.35*(o.r>200?0.8:1.2);
+    const x=Math.cos(a)*o.r, z=Math.sin(a)*o.r, y=Math.sin(a)*o.r*0.35;
+    const s=0.7+(z+o.r)/(2*o.r)*0.5;
+    o.el.style.transform=`translate3d(${x}px,${y}px,${z*0.6}px) scale(${s})`;
+    o.el.style.opacity=0.4+s*0.6;
+    o.el.style.zIndex=Math.round(z);
+  });
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
+
+// 3D desktop showcase
+const desks=[['App Development','#8b5cf6','#f472b6'],['Web Development','#0ea5e9','#22d3ee'],['SEO','#f59e0b','#f472b6'],['Conversion (CRO)','#10b981','#22d3ee'],['App + Website','#ec4899','#fbbf24']];
+const stage=document.getElementById('stage');
+let cur=0;
+desks.forEach(([n,a,b])=>{const d=document.createElement('div');d.className='desk';d.innerHTML=`<div class="scr" style="background:linear-gradient(135deg,${a},${b})"><h3>${n}</h3><div class="bars"><i></i><i></i><i></i><i></i></div></div>`;stage.appendChild(d)});
+function layoutDesks(){
+  [...stage.children].forEach((d,i)=>{
+    let off=i-cur;const n=desks.length;
+    if(off>n/2)off-=n;if(off<-n/2)off+=n;
+    const abs=Math.abs(off);
+    d.style.transform=`translateX(${off*70}%) translateZ(${-abs*160}px) rotateY(${-off*35}deg)`;
+    d.style.opacity=abs>2?0:1-abs*0.25;
+    d.style.zIndex=10-abs;
+  });
+}
+function step(k){cur=(cur+k+desks.length)%desks.length;layoutDesks()}
+layoutDesks();
+setInterval(()=>{if(document.getElementById('landing').classList.contains('on'))step(1)},3500);
+
+// Services
+const svcs=[['🌐','Web Development','Fast, responsive and modern websites built to convert visitors into customers.'],['📱','App Development','Smooth, scalable Android and iOS apps for your business.'],['🔍','SEO','Top Google rankings and consistent organic traffic that compounds over time.'],['🎯','Conversion (CRO)','Proven strategies to turn more of your visitors into paying customers.'],['📣','Paid Ads','ROI-focused campaigns on Meta, Google and YouTube.'],['🎨','Branding','Logos, identity systems and 3D visuals that make you memorable.'],['✍️','Content','Blogs, videos and social media content that builds trust.'],['📊','Analytics','Data-driven decisions with clear reports every week.']];
+const grid=document.getElementById('svcGrid');
+svcs.forEach(([ic,t,p])=>{const c=document.createElement('div');c.className='card reveal';c.innerHTML=`<div class="ic">${ic}</div><h3>${t}</h3><p>${p}</p>`;grid.appendChild(c);
+  c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect();const x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform=`perspective(700px) rotateY(${x*18}deg) rotateX(${-y*18}deg) translateZ(10px)`});
+  c.addEventListener('mouseleave',()=>c.style.transform='');
+});
+
+// Quotes
+const quotes=['"gaurav.io rebuilt our website and SEO at the same time. Our leads doubled in three months."','"From app launch to ad campaigns, one team delivered outstanding results."','"Our traffic tripled and qualified leads started coming in right away."'];
+let qi=0;const qel=document.getElementById('quote');
+setInterval(()=>{qel.style.opacity=0;qel.style.transform='translateY(10px)';setTimeout(()=>{qi=(qi+1)%quotes.length;qel.textContent=quotes[qi];qel.style.opacity=1;qel.style.transform='none'},600)},4000);
+
+// Counters + reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{
+  if(!e.isIntersecting)return;
+  e.target.classList.add('v');
+  e.target.querySelectorAll('[data-n]').forEach(c=>{
+    const max=+c.dataset.n;let n=0;const id=setInterval(()=>{n+=Math.ceil(max/40);if(n>=max){n=max;clearInterval(id)}c.textContent=n+(c.parentElement.textContent.includes('%')?'%':'+')},30);
+  });
+  io.unobserve(e.target);
+}),{threshold:.15});
+function observe(){document.querySelectorAll('.page.on .reveal:not(.v)').forEach(el=>io.observe(el))}
+
+if(false){ // old office scene, disabled
+const officeSvcs=[['App Development','Native and cross-platform apps for Android and iOS.'],['Web Development','Fast, responsive websites that convert visitors.'],['SEO','Top Google rankings and steady organic traffic.'],['Conversion (CRO)','Turn more visitors into paying customers.'],['Paid Ads','ROI-focused campaigns on Meta, Google and YouTube.'],['Branding','Logos, identity systems and 3D visuals.'],['Content','Blogs, videos and social media content.'],['Analytics','Clear weekly reports that drive decisions.'],['Cloud & Hosting','Secure, fast and always-on infrastructure.'],['Support','Ongoing maintenance and a team that answers.']];
+const deskEls=[];
+const desksEl=document.getElementById('desks');
+officeSvcs.forEach(([t],i)=>{const d=document.createElement('div');d.className='desk2';d.style.left=(6+(i%5)*18)+'%';d.style.top=(22+Math.floor(i/5)*28)+'%';d.innerHTML=`<div class="mon">${t}</div><div class="tbl"></div>`;desksEl.appendChild(d);deskEls.push(d)});
+let officeTok=0;
+function startOffice(){
+  const tok=++officeTok;
+  const guy=document.getElementById('guy'),gate=document.getElementById('gate'),info=document.getElementById('info');
+  gate.classList.remove('open');deskEls.forEach(d=>d.classList.remove('on'));
+  guy.style.transition='none';guy.style.left='-8%';guy.offsetWidth;
+  guy.style.transition='left 2.2s ease-in-out';
+  setTimeout(()=>{if(tok!==officeTok)return;gate.classList.add('open');guy.style.left='16%'},300);
+  setTimeout(()=>{if(tok!==officeTok)return;gate.classList.remove('open')},2600);
+  let i=0;
+  function show(){
+    if(tok!==officeTok)return;
+    deskEls.forEach(d=>d.classList.remove('on'));
+    const d=deskEls[i];
+    guy.style.left=(parseFloat(d.style.left)+1)+'%';
+    setTimeout(()=>{if(tok!==officeTok)return;d.classList.add('on');info.innerHTML=`<h3>${officeSvcs[i][0]}</h3><p>${officeSvcs[i][1]}</p>`},2400);
+    i=(i+1)%officeSvcs.length;
+    setTimeout(show,4000);
+  }
+  setTimeout(show,2800);
+}
+
+}
+
+const APP=['import SwiftUI\nstruct Home: View {\n  var body: some View {\n    List(items) { Text($0.title) }\n  }\n}','fun main() {\n  val app = App()\n  app.onCreate { showScreen(HomeScreen()) }\n  app.start()\n}','class Home extends StatelessWidget {\n  @override\n  Widget build(BuildContext c) {\n    return Scaffold(body: Text("Hello"));\n  }\n}','const App = () => {\n  const [count, setCount] = useState(0);\n  return <Button onPress={() => setCount(count + 1)} />;\n};'];
+const WEB=['<!doctype html>\n<html>\n<body>\n  <h1>Welcome</h1>\n  <button id="go">Start</button>\n</body>\n</html>','.hero {\n  display: grid;\n  place-items: center;\n  background: linear-gradient(#8b5cf6, #f472b6);\n}','app.get("/api/leads", async (req, res) => {\n  const leads = await db.leads.find();\n  res.json(leads);\n});','document.querySelector("#go")\n  .addEventListener("click", () => {\n    console.log("Launching");\n  });'];
+const labDesks=[];
+function fillBank(id,snips,label){
+  const bank=document.getElementById(id);
+  for(let i=0;i<10;i++){
+    const w=document.createElement('div');w.className='ws';
+    w.innerHTML=`<div class="mon"><pre></pre></div><div class="stand"></div><div class="tbl"></div><div class="lbl">${label} ${i+1}</div>`;
+    const c=snips[i%snips.length];
+    w.querySelector('pre').textContent=c+'\n\n'+c;
+    bank.appendChild(w);labDesks.push(w);
+  }
+}
+
+
+const labInfo=[['App Development','Native and cross-platform apps built with Swift, Kotlin and Flutter.'],['Web Development','Fast, responsive websites built with HTML, CSS, JavaScript and React.']];
+let labK=0;
+if(false)setInterval(()=>{labDesks.forEach(w=>w.classList.remove('on'));const w=labDesks[labK];w.classList.add('on');const it=labInfo[labK<10?0:1];document.getElementById('info').innerHTML=`<h3>${it[0]}</h3><p>${it[1]}</p>`;labK=(labK+1)%labDesks.length},1800);
+
+function sent(){const t=document.getElementById('toast');t.classList.add('s');setTimeout(()=>t.classList.remove('s'),2600)}
+route();
+</script>
+</body>
+</html>
